@@ -1,9 +1,34 @@
 # Unit-тестирование
 
-Используйте функцию `upVersion()`, которую мы написали ранее. Скопируйте её в этот проект, настройте для нее Github Actions с подсчетом Coverage и загрузкой отчёта на [codecov.io](https://about.codecov.io/).
+Написать и протестируйть функцию `upVersion()`, которая обновляет указанную часть версии пакета.
+
+**Параметры:**
+
+* Путь до файла *package.json*
+* Имя части версии пакета, которую необходимо обновить:
+    * major
+    * minor
+    * patch — значение по умолчанию
+
+```javascript
+// Начальная версия в package.json 1.3.2
+
+// 1.3.3
+// По умолчанию 'patch'
+upVersion('./package.json');
+
+// 1.4.0
+upVersion('./package.json', 'minor');
+
+// 2.0.0
+upVersion('./package.json', 'major');
+```
 
 ## Ссылки
 
+* [Semantic Versioning](https://semver.org)
+* [fs](https://nodejs.org/api/fs.html)
+* [path](https://nodejs.org/api/path.html)
 * [GitHub Actions](https://github.com/features/actions)
 * [jest --coverage](https://jestjs.io/ru/docs/cli#--coverageboolean)
 * [Codecov GitHub Action](https://github.com/codecov/codecov-action)
